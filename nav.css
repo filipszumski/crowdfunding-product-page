@@ -1,0 +1,10 @@
+.nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-end;
+    margin-bottom: 100px;
+}
+
+.nav__item {
+    margin-left: 20px;
+}

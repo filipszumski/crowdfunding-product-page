@@ -1,0 +1,21 @@
+.section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #ccc;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section__header {
+    margin-top: 0px;
+}
+
+.section__button {
+    padding: 10px;
+}

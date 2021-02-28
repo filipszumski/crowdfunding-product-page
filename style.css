@@ -1,0 +1,18 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #eee;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+}
