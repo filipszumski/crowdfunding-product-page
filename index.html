@@ -7,39 +7,57 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/header.css">
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/section.css">
+  <script defer src="/script.js"></script>
 
   <title>Frontend Mentor | Crowdfunding product page</title>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul class="nav">
-        <li class="nav__item">About</li>
-        <li class="nav__item">Discover</li>
-        <li class="nav__item">Get Started</li>
-      </ul>
-    </nav>
+  <header class="header">
+      <span class="header__title">Crowfund</span>
+      <nav>
+        <ul class="nav">
+          <li class="nav__item"><a href="" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="" class="nav__link">Discover</a></li>
+          <li class="nav__item"><a href="" class="nav__link">Get Started</a></li>
+        </ul>
+      </nav>
   </header>
 
   <main class="main">
-    <section class="section">
+    <section class="section section--top">
       <h2 class="section__header">Mastercraft Bamboo Monitor Riser</h2>
       <p class="section__paragraph">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="flexContainer">
         <button class="section__button"> Back this project</button>
-        <button class="section__button"> Bookmark</button>
+        <button class="section__bookmarkButton js-bookmarkButton">
+          <div class="flexContainer1">
+            <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <circle class="js-bookmarkImgCircle" fill="hsl(0, 0%, 48%)" cx="28" cy="28" r="28" />
+                <path class="js-bookmarkImgPath" fill="#eee" d="M23 19v18l5-5.058L33 37V19z" />
+              </g>
+            </svg>
+            <span class="section__bookmarkText js-bookmarkButtonText">Bookmark</span>
+          </div>
+        </button>
       </div>
     </section>
 
     <section class="section">
-      <div>
-        <div> $89,914 of $100,000 backed</div>
-        <div>5,007 total backers</div>
-        <div>56 days left</div>
+      <div class="flexContainer1">
+        <div class="flexElement"><span class="section__boldText">$89,914</span><br>of $100,000 backed</div>
+        <div class="flexElement1"><span class="section__boldText">5,007</span><br>total backers</div>
+        <div class="flexElement1"><span class="section__boldText">56</span><br>days left</div>
       </div>
     </section>
 
@@ -56,50 +74,49 @@
         to allow notepads, pens, and USB sticks to be stored under the stand.
       </p>
 
-    </section>
+      <div class="section">
+        <div class="flexContainer">
+          <h2 class="section__header"> Bamboo Stand</h2>
+          <span class="section__colourText"> Pledge $25 or more</span>
+        </div>
+        <p class="section__paragraph">
+          You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+          you’ll be added to a special Backer member list.
+        </p>
+        <div class="flexContainer">
+          <div><span class="section__boldText">101</span> left</div>
+          <button class="section__button"> Select Reward</button>
+        </div>
+      </div>
 
-    <section class="section">
-      <div>
-        <h2 class="section__header"> Bamboo Stand</h2>
-        <span> Pledge $25 or more</span>
+      <div class="section">
+        <div class="flexContainer">
+          <h2 class="section__header"> Black Edition Stand</h2>
+          <span class="section__colourText">Pledge $75 or more</span>
+        </div>
+        <p class="section__paragraph">
+          You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+          member list. Shipping is included.
+        </p>
+        <div class="flexContainer">
+          <div><span class="section__boldText">64</span> left</div>
+          <button class="section__button">Select Reward</button>
+        </div>
       </div>
-      <p class="section__paragraph">
-        You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-        you’ll be added to a special Backer member list.
-      </p>
-      <div>
-        <div><span> 101</span>left</div>
-        <button class="section__button"> Select Reward</button>
-      </div>
-    </section>
 
-    <section class="section">
-      <div>
-        <h2 class="section__header"> Black Edition Stand</h2>
-        <span> Pledge $75 or more</span>
-      </div>
-      <p class="section__paragraph">
-        You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-        member list. Shipping is included.
-      </p>
-      <div>
-        <div><span>64</span>left</div>
-        <button class="section__button">Select Reward</button>
-      </div>
-    </section>
-
-    <section class="section">
-      <div>
-        <h2 class="section__header">Mahogany Special Edition</h2>
-        <span> Pledge $200 or more</span>
-      </div>
-      <p class="section__paragraph">
-        You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-        to our Backer member list. Shipping is included.
-      </p>
-      <div>
-        <div><span> 0 </span>left</div>
-        <button class="section__button"> Out of Stock</button>
+      <div class="section section--disable">
+        <div class="flexContainer">
+          <h2 class="section__header">Mahogany Special Edition</h2>
+          <span class="section__colourText"> Pledge $200 or more</span>
+        </div>
+        <p class="section__paragraph">
+          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+          to our Backer member list. Shipping is included.
+        </p>
+        <div class="flexContainer">
+          <div><span class="section__boldText"> 0 </span> left</div>
+          <button class="section__button section__button--disabled" disabled>Out of Stock</button>
+        </div>
       </div>
     </section>
   </main>

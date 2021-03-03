@@ -1,10 +1,17 @@
 .section {
     background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 35px;
+    margin: 20px 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 2px 2px 8px #ccc;
+}
+
+.section--top {
+    text-align: center;
+}
+
+.section--disable {
+    opacity: 0.5;
 }
 
 .flexContainer {
@@ -12,10 +19,71 @@
     justify-content: space-between;
 }
 
+.flexContainer1 {
+    display: flex;
+    align-items: center;
+}
+
+.flexElement {
+    flex: 1 0 auto;
+}
+
+.flexElement1 {
+    flex: 1 0 auto;
+    padding-left: 35px;
+    border-left: 1px solid #ccc;
+}
+
+.section__boldText {
+    color: hsl(0, 0%, 0%);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.section__colourText {
+    color: hsl(176, 50%, 47%);
+}
+
+.section__bookmarkText {
+    margin-left: 10px;
+}
+
 .section__header {
+    color: hsl(0, 0%, 0%);
     margin-top: 0px;
 }
 
 .section__button {
-    padding: 10px;
+    border: none;
+    padding: 20px;
+    border-radius: 128.02px;
+    color: white;
+    background-color: hsl(176, 50%, 47%);
+}
+
+.section__button:hover {
+    background-color: hsl(176, 72%, 28%);
+}
+
+.section__button--disabled {
+    background-color: hsl(0, 0%, 48%);
+}
+
+.section__button--disabled:hover {
+    background-color: hsl(0, 0%, 48%);
+}
+
+.section__bookmarkButton {
+    border: none;
+    padding: 20px;
+    border-radius: 128.02px;
+    background-color: #eee;
+    color: hsl(0, 0%, 48%);
+    align-self: center;
+    padding: 0px 20px 0px 0px;
+}
+
+.section__bookmarkedButton {
+    color: hsl(176, 72%, 28%);
+    background-color: hsl(176deg 46% 95%);
 }

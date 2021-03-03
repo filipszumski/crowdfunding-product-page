@@ -7,9 +7,16 @@ html {
 }
 
 body {
-    max-width: 1200px;
+    font-family: 'Commissioner', sans-serif;
+    font-size: 16px;
+    max-width: 1440px;
     margin: 0 auto;
     background-color: #eee;
+    color: hsl(0, 0%, 48%);
+    background-image: url("./images/image-hero-desktop.jpg");
+    background-size: auto auto;
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 .main {
