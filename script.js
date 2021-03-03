@@ -1,7 +1,6 @@
 {
-    const toggleBookmark = () => {
+    const toggleBookmark = (bookmarkButtonElement) => {
         const bookmarkButtonTextElement = document.querySelector(".js-bookmarkButtonText");
-        const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
         const bookmarkImgCircleElement = document.querySelector(".js-bookmarkImgCircle");
         const bookmarkImgPathElement = document.querySelector(".js-bookmarkImgPath")
 
@@ -19,14 +18,39 @@
 
     }
 
-    const bindButtonsEvents = () => {
-        const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
+    const onInput = (buttonIndex) => {
+        const pledgeValueContainerElements = document.querySelectorAll(".js-pledgeValueContainer");
 
-        bookmarkButtonElement.addEventListener("click", toggleBookmark)
+        pledgeValueContainerElements.forEach((pledgeElement, index) => {
+            if (index === buttonIndex) {
+                pledgeElement.innerHTML = `
+                <span> Enter your pledge</span>
+                <div>
+                  <input class="form__input" type="number" step="1" value="0">
+                  <button class="form__button">Continue</button>
+                </div>
+                `
+            } else {
+                pledgeElement.innerHTML = ``;
+            }
+        })
+    };
+
+    const bindButtonsEvents = () => {
+        bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
+        bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement))
+
+        const radioFormElements = document.querySelectorAll(".js-radio");
+        radioFormElements.forEach((radioElement, index) => {
+            radioElement.addEventListener("input", () => {
+                onInput(index);
+            })
+        })
     }
 
     const init = () => {
-
+        const formElement = document.querySelector(".js-form");
+        console.log(formElement);
 
         bindButtonsEvents();
     }
