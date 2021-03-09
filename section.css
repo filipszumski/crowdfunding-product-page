@@ -14,21 +14,17 @@
     opacity: 0.5;
 }
 
-.flexContainer {
+.section__flexContainer {
     display: flex;
     justify-content: space-between;
-}
-
-.flexContainer1 {
-    display: flex;
     align-items: center;
 }
 
-.flexElement {
+.section__flexElement {
     flex: 1 0 auto;
 }
 
-.flexElement1 {
+.section__flexElement1 {
     flex: 1 0 auto;
     padding-left: 35px;
     border-left: 1px solid #ccc;
