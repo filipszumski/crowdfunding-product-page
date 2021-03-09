@@ -15,15 +15,25 @@
     border-radius: 5px;
 }
 
+.form__fieldset--active {
+    border: 2px solid hsl(176, 72%, 28%);
+}
+
 .form__flexContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.form__flexContainer--active {
+    padding-top: 16px;
+    border-top: 1px solid #ccc;
+}
+
 .form__boldText {
     color: hsl(0, 0%, 0%);
-    font-size: 30px;
+    margin-left: 10px;
+    font-size: 16px;
     font-weight: 700;
 }
 
