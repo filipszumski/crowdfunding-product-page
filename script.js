@@ -19,24 +19,51 @@
         }
     };
 
-    const updatePiecesState = () => {
+    makeProductDisabled = (element) => {
+        const radioFormElements = document.querySelectorAll(".js-radio");
+        const fieldsetElements = document.querySelectorAll(".js-fieldset");
+
+        radioFormElements.forEach((radioElement, index) => {
+            if (radioElement.value === activeProduct) {
+                radioElement.disabled = true;
+                fieldsetElements[index].classList.add("form__fieldset--disabled");
+                renderInput(index);
+            }
+        })
+    }
+
+    const updatePiecesLeftState = () => {
         const blackEditionPiecesElements = document.querySelectorAll(".js-blackEditionPieces");
         const bambooStandPieceseElements = document.querySelectorAll(".js-bambooStandPieces");
+        const mahoganyEditionPieceseElements = document.querySelectorAll(".js-mahoganyEditionPieces");
+
 
         bambooStandPieceseElements.forEach((element) => {
             if (activeProduct === "bambooStand") {
-                return element.innerText = +element.innerText - 1;
-            } else {
-                return;
+                element.innerText = +element.innerText - 1;
+                if (+element.innerText < 1) {
+                    makeProductDisabled();
+                }
             }
         })
 
         blackEditionPiecesElements.forEach((element) => {
             if (activeProduct === "blackEditionStand") {
-                return element.innerText = +element.innerText - 1;
-            } else {
-                return;
+                element.innerText = +element.innerText - 1;
+                if (+element.innerText < 1) {
+                    makeProductDisabled();
+                }
             }
+        })
+
+        mahoganyEditionPieceseElements.forEach((element) => {
+            if (activeProduct === "mahoganyStand") {
+                element.innerText = +element.innerText - 1;
+                if (+element.innerText < 1) {
+                    makeProductDisabled();
+                }
+            }
+
         })
     }
 
@@ -51,20 +78,20 @@
         totalPaidInAmountElement.innerText = updatedPaidInAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         backersAmountElement.innerText = updatedBackersAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        updatePiecesState();
+        updatePiecesLeftState();
 
         pledgeValueElement.value = "";
     }
 
-    const onInput = (buttonIndex) => {
+    const renderInput = (buttonIndex) => {
         const pledgeValueContainerElements = document.querySelectorAll(".js-pledgeValueContainer");
-        const fieldsetElement = document.querySelectorAll(".js-fieldset");
-        const minimumPledgeValueElements = document.querySelectorAll(".js-minimumPledgeValue")
+        const fieldsetElements = document.querySelectorAll(".js-fieldset");
+        const minimumPledgeValueElements = document.querySelectorAll(".js-minimumPledgeValue");
 
         pledgeValueContainerElements.forEach((pledgeElement, index) => {
-            if (index === buttonIndex) {
+            if (index === buttonIndex && !fieldsetElements[index].classList.contains("form__fieldset--disabled")) {
                 pledgeElement.classList.add("form__flexContainer--active");
-                fieldsetElement[index].classList.add("form__fieldset--active");
+                fieldsetElements[index].classList.add("form__fieldset--active");
                 pledgeElement.innerHTML = `
                 <span> Enter your pledge ($)</span>
                 <div>
@@ -80,7 +107,7 @@
             } else {
                 pledgeElement.innerHTML = ``;
                 pledgeElement.classList.remove("form__flexContainer--active");
-                fieldsetElement[index].classList.remove("form__fieldset--active");
+                fieldsetElements[index].classList.remove("form__fieldset--active");
             }
         })
     };
@@ -101,8 +128,7 @@
 
             radioElement.addEventListener("input", () => {
                 activeProduct = radioElement.value;
-                console.log(activeProduct);
-                onInput(index);
+                renderInput(index);
             })
         })
     };
