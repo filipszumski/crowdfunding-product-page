@@ -23,6 +23,7 @@
 </head>
 
 <body>
+  <div class="overlay js-overlay"></div>
   <header class="header">
     <span class="header__title">Crowfund</span>
     <nav>
@@ -39,7 +40,7 @@
       <h2 class="section__header section__header--top">Mastercraft Bamboo Monitor Riser</h2>
       <p class="section__paragraph">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="section__flexContainer">
-        <button class="section__button"> Back this project</button>
+        <button class="section__button js-showForm"> Back this project</button>
         <button class="section__bookmarkButton js-bookmarkButton">
           <div class="section__flexContainer">
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
@@ -124,87 +125,92 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section__header">Back this project</h2>
-      <p class="section__paragraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
-      </p>
+    <div class="popup js-popup">
+      <section class="section">
+        <div class="section__flexContainer">
+          <h2 class="section__header">Back this project</h2>
+          <button class="js-deletePopup">X</button>
+        </div>
+        <p class="section__paragraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+        </p>
 
-      <form class="form js-form">
+        <form class="form js-form">
 
-        <fieldset class="form__fieldset form__fieldset--active js-fieldset">
-          <label class="form__label">
-            <input class="js-radio" type="radio" name="standType" value="noStand" checked>
-            <span class="form__boldText"> Pledge with no reward</span>
-          </label>
-          <p class="form__paragraph">
-            Choose to support us without a reward if you simply believe in our project. As a backer,
-            you will be signed up to receive product updates via email.
-          </p>
-          <div class="form__flexContainer js-pledgeValueContainer">
-            <span> Enter your pledge ($)</span>
-            <div>
-              <input class="form__input js-pledgeValue" type="number" step="1" min="0">
-              <button class="form__button">Continue</button>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form__fieldset js-fieldset">
-          <div class="form__flexContainer">
+          <fieldset class="form__fieldset form__fieldset--active js-fieldset">
             <label class="form__label">
-              <input class="js-radio" type="radio" name="standType" value="bambooStand" autofocus>
-              <span class="form__boldText">Bamboo Stand</span>
+              <input class="js-radio" type="radio" name="standType" value="noStand" checked>
+              <span class="form__boldText"> Pledge with no reward</span>
             </label>
-            <div>
-              <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">25</span> or more</span>
-              <span class="form__boldText js-bambooStandPieces"> 20</span> left
+            <p class="form__paragraph">
+              Choose to support us without a reward if you simply believe in our project. As a backer,
+              you will be signed up to receive product updates via email.
+            </p>
+            <div class="form__flexContainer js-pledgeValueContainer">
+              <span> Enter your pledge ($)</span>
+              <div>
+                <input class="form__input js-pledgeValue" type="number" step="1" min="0">
+                <button class="form__button js-deletePopup">Continue</button>
+              </div>
             </div>
-          </div>
-          <p class="form__paragraph">
-            You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-            you’ll be added to a special Backer member list.
-          </p>
-          <div class="form__flexContainer js-pledgeValueContainer">
-          </div>
-        </fieldset>
+          </fieldset>
 
-        <fieldset class="form__fieldset js-fieldset">
-          <div class="form__flexContainer">
-            <label class="form__label">
-              <input class="js-radio" type="radio" name="standType" value="blackEditionStand">
-              <span class="form__boldText">Black Edition Stand</span>
-            </label>
-            <div>
-              <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">75</span> or more</span>
-              <span class="form__boldText js-blackEditionPieces">10</span> left
+          <fieldset class="form__fieldset js-fieldset">
+            <div class="form__flexContainer">
+              <label class="form__label">
+                <input class="js-radio" type="radio" name="standType" value="bambooStand" autofocus>
+                <span class="form__boldText">Bamboo Stand</span>
+              </label>
+              <div>
+                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">25</span> or more</span>
+                <span class="form__boldText js-bambooStandPieces"> 20</span> left
+              </div>
             </div>
-          </div>
-          <p class="form__paragraph">
-            You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-            member list. Shipping is included.
-          </p>
-          <div class="form__flexContainer js-pledgeValueContainer">
-          </div>
-        </fieldset>
+            <p class="form__paragraph">
+              You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+              you’ll be added to a special Backer member list.
+            </p>
+            <div class="form__flexContainer js-pledgeValueContainer">
+            </div>
+          </fieldset>
 
-        <fieldset class="form__fieldset js-fieldset">
-          <div class="form__flexContainer">
-            <label class="form__label"><input class="js-radio" type="radio" name="standType" value="mahoganyStand">
-              <span class="form__boldText">Mahogany Special Edition</span></label>
-            <div>
-              <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">200</span> or more</span>
-              <span class="form__boldText js-mahoganyEditionPieces">1</span> left
+          <fieldset class="form__fieldset js-fieldset">
+            <div class="form__flexContainer">
+              <label class="form__label">
+                <input class="js-radio" type="radio" name="standType" value="blackEditionStand">
+                <span class="form__boldText">Black Edition Stand</span>
+              </label>
+              <div>
+                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">75</span> or more</span>
+                <span class="form__boldText js-blackEditionPieces">10</span> left
+              </div>
             </div>
-          </div>
-          <p class="form__paragraph">
-            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-            to our Backer member list. Shipping is included.
-          </p>
-          <div class="form__flexContainer js-pledgeValueContainer">
-          </div>
-        </fieldset>
-      </form>
-    </section>
+            <p class="form__paragraph">
+              You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+              member list. Shipping is included.
+            </p>
+            <div class="form__flexContainer js-pledgeValueContainer">
+            </div>
+          </fieldset>
+
+          <fieldset class="form__fieldset js-fieldset">
+            <div class="form__flexContainer">
+              <label class="form__label"><input class="js-radio" type="radio" name="standType" value="mahoganyStand">
+                <span class="form__boldText">Mahogany Special Edition</span></label>
+              <div>
+                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">200</span> or more</span>
+                <span class="form__boldText js-mahoganyEditionPieces">1</span> left
+              </div>
+            </div>
+            <p class="form__paragraph">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+              to our Backer member list. Shipping is included.
+            </p>
+            <div class="form__flexContainer js-pledgeValueContainer">
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>
 
     <section class="section section--centred section--short">
       <h2 class="section__header">Thanks for your support!</h2>
@@ -215,7 +221,6 @@
       <button class="section__button">Got it!</button>
     </section>
   </main>
-
 
 
 </body>
