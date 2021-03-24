@@ -19,7 +19,7 @@
         }
     };
 
-    makeProductDisabled = (element) => {
+    makeProductDisabled = () => {
         const radioFormElements = document.querySelectorAll(".js-radio");
         const fieldsetElements = document.querySelectorAll(".js-fieldset");
 
@@ -27,12 +27,12 @@
             if (radioElement.value === activeProduct) {
                 radioElement.disabled = true;
                 fieldsetElements[index].classList.add("form__fieldset--disabled");
-                renderInput(index);
+                renderPledgeValueElement(index);
             }
         })
     }
 
-    const updatePiecesLeftState = () => {
+    const updatePiecesLeftInfo = () => {
         const blackEditionPiecesElements = document.querySelectorAll(".js-blackEditionPieces");
         const bambooStandPieceseElements = document.querySelectorAll(".js-bambooStandPieces");
         const mahoganyEditionPieceseElements = document.querySelectorAll(".js-mahoganyEditionPieces");
@@ -63,7 +63,6 @@
                     makeProductDisabled();
                 }
             }
-
         })
     }
 
@@ -74,29 +73,31 @@
 
         const updatedPaidInAmount = +totalPaidInAmountElement.innerText.replace(/,/g, "") + +pledgeValueElement.value;
         const updatedBackersAmount = +backersAmountElement.innerText.replace(/,/g, "") + 1;
+        pledgeValueElement.value = "";
 
         totalPaidInAmountElement.innerText = updatedPaidInAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         backersAmountElement.innerText = updatedBackersAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-        updatePiecesLeftState();
-
-        pledgeValueElement.value = "";
     }
 
-    const renderInput = (buttonIndex) => {
+    const updateInfo = () => {
+        updateFundingInfo();
+        updatePiecesLeftInfo();
+    }
+
+    const renderPledgeValueElement = (inputIndex) => {
         const pledgeValueContainerElements = document.querySelectorAll(".js-pledgeValueContainer");
         const fieldsetElements = document.querySelectorAll(".js-fieldset");
         const minimumPledgeValueElements = document.querySelectorAll(".js-minimumPledgeValue");
 
         pledgeValueContainerElements.forEach((pledgeElement, index) => {
-            if (index === buttonIndex && !fieldsetElements[index].classList.contains("form__fieldset--disabled")) {
+            if (index === inputIndex && !fieldsetElements[index].classList.contains("form__fieldset--disabled")) {
                 pledgeElement.classList.add("form__flexContainer--active");
                 fieldsetElements[index].classList.add("form__fieldset--active");
                 pledgeElement.innerHTML = `
                 <span> Enter your pledge ($)</span>
                 <div>
-                    <input 
-                        class="form__input js-pledgeValue" 
+                    <input
+                        class="form__input js-pledgeValue"
                         type="number" 
                         step="1" 
                         min=${minimumPledgeValueElements[index - 1] ? minimumPledgeValueElements[index - 1].innerText : "0"}
@@ -115,8 +116,7 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        updateFundingInfo();
-
+        updateInfo();
     };
 
     const bindButtonsEvents = () => {
@@ -128,7 +128,7 @@
 
             radioElement.addEventListener("input", () => {
                 activeProduct = radioElement.value;
-                renderInput(index);
+                renderPledgeValueElement(index);
             })
         })
     };
