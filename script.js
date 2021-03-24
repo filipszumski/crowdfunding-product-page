@@ -123,6 +123,28 @@
         const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
         bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement))
 
+        const showFormElement = document.querySelector(".js-showForm");
+        const overlayElement = document.querySelector(".js-overlay");
+        const popupElement = document.querySelector(".js-popup");
+        showFormElement.addEventListener("click", () => {
+            overlayElement.classList.toggle("overlay--active");
+            popupElement.classList.toggle("popup--active");
+        })
+
+        const deletePopupElements = document.querySelectorAll(".js-deletePopup");
+        deletePopupElements.forEach((button) => {
+            button.addEventListener("click", () => {
+                overlayElement.classList.toggle("overlay--active");
+                popupElement.classList.toggle("popup--active");
+            })
+
+        })
+    };
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+        formElement.addEventListener("submit", onFormSubmit);
+
         const radioFormElements = document.querySelectorAll(".js-radio");
         radioFormElements.forEach((radioElement, index) => {
 
@@ -131,11 +153,6 @@
                 renderPledgeValueElement(index);
             })
         })
-    };
-
-    const init = () => {
-        const formElement = document.querySelector(".js-form");
-        formElement.addEventListener("submit", onFormSubmit);
 
         bindButtonsEvents();
     }
