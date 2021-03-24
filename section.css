@@ -6,8 +6,13 @@
     border-radius: 10px;
 }
 
-.section--top {
+.section--centred {
     text-align: center;
+}
+
+.section--short {
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .section--disable {
