@@ -120,56 +120,73 @@
         })
     };
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-
-        // CONFIRM PLEDGE POPUP
+    const goToPledgeConfirm = () => {
         const popupPledgeFormElement = document.querySelector(".js-popupPledgeForm");
         const popupPledgeConfirmElement = document.querySelector(".js-popupPledgeConfirm");
 
         popupPledgeFormElement.classList.remove("popupPledgeForm--active");
         popupPledgeConfirmElement.classList.add("popupPledgeForm--active");
+    };
 
-        updateInfo();
+    const showPledgeForm = (overlayContainerElement, popupPledgeFormElement) => {
+        overlayContainerElement.classList.add("overlay--active");
+        popupPledgeFormElement.classList.add("popupPledgeForm--active");
+    };
+
+    const cancelPopupWindow = (overlayContainerElement, popupPledgeFormElement, popupPledgeConfirmElement) => {
+        overlayContainerElement.classList.remove("overlay--active");
+        popupPledgeFormElement.classList.remove("popupPledgeForm--active");
+        popupPledgeConfirmElement.classList.remove("popupPledgeForm--active");
+    };
+
+    const showPledgeFormWithChosenProduct = (index, radioFormElements, overlayContainerElement, popupPledgeFormElement) => {
+        activeProduct = radioFormElements[index + 1].value;
+        radioFormElements[index + 1].checked = true;
+        renderPledgeValueElement(index + 1);
+        showPledgeForm(overlayContainerElement, popupPledgeFormElement);
     };
 
     const bindButtonsEvents = (radioFormElements) => {
         const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
         bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement));
 
-        const showForm = () => {
-            overlayElement.classList.add("overlay--active");
-            popupPledgeFormElement.classList.add("popupPledgeForm--active");
-        }
-
-        const selectRewardButtonElements = document.querySelectorAll(".js-selectRewardButton");
-        selectRewardButtonElements.forEach((buttonElement, index) => {
-            buttonElement.addEventListener("click", () => {
-                activeProduct = radioFormElements[index + 1].value;
-                radioFormElements[index + 1].checked = true;
-                renderPledgeValueElement(index + 1);
-                showForm();
-            })
-        });
-
-        // POPUP
-        const overlayElement = document.querySelector(".js-overlay");
+        const overlayContainerElement = document.querySelector(".js-overlayContainer");
         const popupPledgeFormElement = document.querySelector(".js-popupPledgeForm");
         const popupPledgeConfirmElement = document.querySelector(".js-popupPledgeConfirm");
-        const showFormElement = document.querySelector(".js-showForm");
-        const cancelPopupElements = document.querySelectorAll(".js-cancelPopup");
+        const showFormButtonElement = document.querySelector(".js-showFormButton");
+        const cancelPopupWindowButtonElements = document.querySelectorAll(".js-cancelPopupButton");
+        const selectRewardButtonElements = document.querySelectorAll(".js-selectRewardButton");
 
-        // POPUP PLEDGE FORM
-        showFormElement.addEventListener("click", showForm)
+        showFormButtonElement.addEventListener("click", () => {
+            showPledgeForm(overlayContainerElement, popupPledgeFormElement);
+        })
 
-        // CANCEL POPUP
-        cancelPopupElements.forEach((cancelPopupElement) => {
-            cancelPopupElement.addEventListener("click", () => {
-                overlayElement.classList.remove("overlay--active");
-                popupPledgeFormElement.classList.remove("popupPledgeForm--active");
-                popupPledgeConfirmElement.classList.remove("popupPledgeForm--active");
+        console.log(cancelPopupWindowButtonElements);
+        cancelPopupWindowButtonElements.forEach((cancelPopupButtonElement) => {
+            cancelPopupButtonElement.addEventListener("click", () => {
+                cancelPopupWindow(overlayContainerElement, popupPledgeFormElement, popupPledgeConfirmElement);
             })
         })
+
+        selectRewardButtonElements.forEach((buttonElement, index) => {
+            buttonElement.addEventListener("click", () => {
+                showPledgeFormWithChosenProduct(index, radioFormElements, overlayContainerElement, popupPledgeFormElement);
+            })
+        });
+    };
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        goToPledgeConfirm();
+
+        updateInfo();
+    };
+
+    const onInputChange = (radioElement, index) => {
+        activeProduct = radioElement.value;
+        console.log("dupa");
+        renderPledgeValueElement(index);
     };
 
     const init = () => {
@@ -182,8 +199,7 @@
 
         radioFormElements.forEach((radioElement, index) => {
             radioElement.addEventListener("input", () => {
-                activeProduct = radioElement.value;
-                renderPledgeValueElement(index);
+                onInputChange(radioElement, index);
             })
         })
     };
