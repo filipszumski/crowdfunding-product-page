@@ -22,11 +22,17 @@
     makeProductDisabled = () => {
         const radioFormElements = document.querySelectorAll(".js-radio");
         const fieldsetElements = document.querySelectorAll(".js-fieldset");
+        const productElements = document.querySelectorAll(".js-product");
+        const selectRewardButtonElements = document.querySelectorAll(".js-selectRewardButton");
 
         radioFormElements.forEach((radioElement, index) => {
             if (radioElement.value === activeProduct) {
                 radioElement.disabled = true;
                 fieldsetElements[index].classList.add("form__fieldset--disabled");
+                productElements[index - 1].classList.add("section--disabled");
+                selectRewardButtonElements[index - 1].classList.add("section__button--disabled");
+                selectRewardButtonElements[index - 1].innerText = "Out of stock";
+                selectRewardButtonElements[index - 1].disabled = true;
                 renderPledgeValueElement(index);
             }
         })
@@ -84,13 +90,13 @@
         updatePiecesLeftInfo();
     };
 
-    const renderPledgeValueElement = (inputIndex) => {
+    const renderPledgeValueElement = (elIndex) => {
         const pledgeValueContainerElements = document.querySelectorAll(".js-pledgeValueContainer");
         const fieldsetElements = document.querySelectorAll(".js-fieldset");
         const minimumPledgeValueElements = document.querySelectorAll(".js-minimumPledgeValue");
 
         pledgeValueContainerElements.forEach((pledgeElement, index) => {
-            if (index === inputIndex && !fieldsetElements[index].classList.contains("form__fieldset--disabled")) {
+            if (index === elIndex && !fieldsetElements[index].classList.contains("form__fieldset--disabled")) {
                 pledgeElement.classList.add("form__flexContainer--active");
                 fieldsetElements[index].classList.add("form__fieldset--active");
                 pledgeElement.innerHTML = `
@@ -127,9 +133,24 @@
         updateInfo();
     };
 
-    const bindButtonsEvents = () => {
+    const bindButtonsEvents = (radioFormElements) => {
         const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
-        bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement))
+        bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement));
+
+        const showForm = () => {
+            overlayElement.classList.add("overlay--active");
+            popupPledgeFormElement.classList.add("popupPledgeForm--active");
+        }
+
+        const selectRewardButtonElements = document.querySelectorAll(".js-selectRewardButton");
+        selectRewardButtonElements.forEach((buttonElement, index) => {
+            buttonElement.addEventListener("click", () => {
+                activeProduct = radioFormElements[index + 1].value;
+                radioFormElements[index + 1].checked = true;
+                renderPledgeValueElement(index + 1);
+                showForm();
+            })
+        });
 
         // POPUP
         const overlayElement = document.querySelector(".js-overlay");
@@ -139,10 +160,7 @@
         const cancelPopupElements = document.querySelectorAll(".js-cancelPopup");
 
         // POPUP PLEDGE FORM
-        showFormElement.addEventListener("click", () => {
-            overlayElement.classList.add("overlay--active");
-            popupPledgeFormElement.classList.add("popupPledgeForm--active");
-        })
+        showFormElement.addEventListener("click", showForm)
 
         // CANCEL POPUP
         cancelPopupElements.forEach((cancelPopupElement) => {
@@ -156,11 +174,12 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
+        const radioFormElements = document.querySelectorAll(".js-radio");
+
         formElement.addEventListener("submit", onFormSubmit);
 
-        bindButtonsEvents();
+        bindButtonsEvents(radioFormElements);
 
-        const radioFormElements = document.querySelectorAll(".js-radio");
         radioFormElements.forEach((radioElement, index) => {
             radioElement.addEventListener("input", () => {
                 activeProduct = radioElement.value;
