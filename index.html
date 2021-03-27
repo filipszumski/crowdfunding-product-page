@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -17,13 +16,13 @@
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/section.css">
   <link rel="stylesheet" href="/css/style.css">
-  <script defer src="/script.js"></script>
+  <script defer src="/js/script.js"></script>
 
   <title>Frontend Mentor | Crowdfunding product page</title>
 </head>
 
 <body>
-  <div class="overlay js-overlay"></div>
+  <div class="overlay js-overlayContainer"></div>
   <header class="header">
     <span class="header__title">Crowfund</span>
     <nav>
@@ -40,7 +39,7 @@
       <h2 class="section__header section__header--top">Mastercraft Bamboo Monitor Riser</h2>
       <p class="section__paragraph">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="section__flexContainer">
-        <button class="section__button js-showForm"> Back this project</button>
+        <button class="section__button js-showFormButton"> Back this project</button>
         <button class="section__bookmarkButton js-bookmarkButton">
           <div class="section__flexContainer">
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +128,7 @@
       <section class="section">
         <div class="section__flexContainer">
           <h2 class="section__header">Back this project</h2>
-          <button class="js-cancelPopup">X</button>
+          <button class="js-cancelPopupButton">X</button>
         </div>
         <p class="section__paragraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
         </p>
@@ -219,7 +218,7 @@
           Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
           an email once our campaign is completed.
         </p>
-        <button class="section__button js-cancelPopup">Got it!</button>
+        <button class="section__button js-cancelPopupButton">Got it!</button>
       </section>
     </div>
   </main>
