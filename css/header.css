@@ -1,11 +1,13 @@
 .header {
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
-    margin: 30px 30px 250px 30px ;
+    margin: 30px auto 250px auto ;
 }
 
 .header__title {
     color: white;
     font-size: 20px;
     font-weight: 700;
+    margin-left: 20px;
 }
