@@ -30,7 +30,7 @@
                 renderPledgeValueElement(index);
             }
         })
-    }
+    };
 
     const updatePiecesLeftInfo = () => {
         const blackEditionPiecesElements = document.querySelectorAll(".js-blackEditionPieces");
@@ -64,25 +64,25 @@
                 }
             }
         })
-    }
+    };
 
     const updateFundingInfo = () => {
         const totalPaidInAmountElement = document.querySelector(".js-totalPainInAmount");
         const backersAmountElement = document.querySelector(".js-backersAmount");
-        const pledgeValueElement = document.querySelector(".js-pledgeValue");
+        const pledgeValueInputElement = document.querySelector(".js-pledgeValue");
 
-        const updatedPaidInAmount = +totalPaidInAmountElement.innerText.replace(/,/g, "") + +pledgeValueElement.value;
+        const updatedPaidInAmount = +totalPaidInAmountElement.innerText.replace(/,/g, "") + +pledgeValueInputElement.value;
         const updatedBackersAmount = +backersAmountElement.innerText.replace(/,/g, "") + 1;
-        pledgeValueElement.value = "";
+        pledgeValueInputElement.value = "";
 
         totalPaidInAmountElement.innerText = updatedPaidInAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         backersAmountElement.innerText = updatedBackersAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+    };
 
     const updateInfo = () => {
         updateFundingInfo();
         updatePiecesLeftInfo();
-    }
+    };
 
     const renderPledgeValueElement = (inputIndex) => {
         const pledgeValueContainerElements = document.querySelectorAll(".js-pledgeValueContainer");
@@ -100,9 +100,10 @@
                         class="form__input js-pledgeValue"
                         type="number" 
                         step="1" 
-                        min=${minimumPledgeValueElements[index - 1] ? minimumPledgeValueElements[index - 1].innerText : "0"}
+                        min=${minimumPledgeValueElements[index - 1] ? minimumPledgeValueElements[index - 1].innerText : "1"}
+                        required
                     >
-                    <button class="form__button">Continue</button>
+                    <button class="form__button js-confirmPledge">Continue</button>
                 </div>
                 `
             } else {
@@ -116,6 +117,13 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
+        // CONFIRM PLEDGE POPUP
+        const popupPledgeFormElement = document.querySelector(".js-popupPledgeForm");
+        const popupPledgeConfirmElement = document.querySelector(".js-popupPledgeConfirm");
+
+        popupPledgeFormElement.classList.remove("popupPledgeForm--active");
+        popupPledgeConfirmElement.classList.add("popupPledgeForm--active");
+
         updateInfo();
     };
 
@@ -123,21 +131,26 @@
         const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
         bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement))
 
-        const showFormElement = document.querySelector(".js-showForm");
+        // POPUP
         const overlayElement = document.querySelector(".js-overlay");
-        const popupElement = document.querySelector(".js-popup");
+        const popupPledgeFormElement = document.querySelector(".js-popupPledgeForm");
+        const popupPledgeConfirmElement = document.querySelector(".js-popupPledgeConfirm");
+        const showFormElement = document.querySelector(".js-showForm");
+        const cancelPopupElements = document.querySelectorAll(".js-cancelPopup");
+
+        // POPUP PLEDGE FORM
         showFormElement.addEventListener("click", () => {
-            overlayElement.classList.toggle("overlay--active");
-            popupElement.classList.toggle("popup--active");
+            overlayElement.classList.add("overlay--active");
+            popupPledgeFormElement.classList.add("popupPledgeForm--active");
         })
 
-        const deletePopupElements = document.querySelectorAll(".js-deletePopup");
-        deletePopupElements.forEach((button) => {
-            button.addEventListener("click", () => {
-                overlayElement.classList.toggle("overlay--active");
-                popupElement.classList.toggle("popup--active");
+        // CANCEL POPUP
+        cancelPopupElements.forEach((cancelPopupElement) => {
+            cancelPopupElement.addEventListener("click", () => {
+                overlayElement.classList.remove("overlay--active");
+                popupPledgeFormElement.classList.remove("popupPledgeForm--active");
+                popupPledgeConfirmElement.classList.remove("popupPledgeForm--active");
             })
-
         })
     };
 
@@ -145,17 +158,16 @@
         const formElement = document.querySelector(".js-form");
         formElement.addEventListener("submit", onFormSubmit);
 
+        bindButtonsEvents();
+
         const radioFormElements = document.querySelectorAll(".js-radio");
         radioFormElements.forEach((radioElement, index) => {
-
             radioElement.addEventListener("input", () => {
                 activeProduct = radioElement.value;
                 renderPledgeValueElement(index);
             })
         })
+    };
 
-        bindButtonsEvents();
-    }
-
-    init()
+    init();
 }
