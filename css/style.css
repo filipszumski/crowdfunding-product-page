@@ -13,7 +13,7 @@ body {
     margin: 0 auto;
     background-color: #eee;
     color: hsl(0, 0%, 48%);
-    background-image: url("/images/image-hero-desktop.jpg");
+    background-image: url("../images/image-hero-desktop.jpg");
     background-size: auto auto;
     background-repeat: no-repeat;
     background-position: center top;
