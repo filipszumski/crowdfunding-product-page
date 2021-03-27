@@ -161,7 +161,6 @@
             showPledgeForm(overlayContainerElement, popupPledgeFormElement);
         })
 
-        console.log(cancelPopupWindowButtonElements);
         cancelPopupWindowButtonElements.forEach((cancelPopupButtonElement) => {
             cancelPopupButtonElement.addEventListener("click", () => {
                 cancelPopupWindow(overlayContainerElement, popupPledgeFormElement, popupPledgeConfirmElement);
@@ -185,7 +184,6 @@
 
     const onInputChange = (radioElement, index) => {
         activeProduct = radioElement.value;
-        console.log("dupa");
         renderPledgeValueElement(index);
     };
 
