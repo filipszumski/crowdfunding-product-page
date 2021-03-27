@@ -125,11 +125,11 @@
       </div>
     </section>
 
-    <div class="popup js-popup">
+    <div class="popupPledgeForm js-popupPledgeForm">
       <section class="section">
         <div class="section__flexContainer">
           <h2 class="section__header">Back this project</h2>
-          <button class="js-deletePopup">X</button>
+          <button class="js-cancelPopup">X</button>
         </div>
         <p class="section__paragraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
         </p>
@@ -148,8 +148,8 @@
             <div class="form__flexContainer js-pledgeValueContainer">
               <span> Enter your pledge ($)</span>
               <div>
-                <input class="form__input js-pledgeValue" type="number" step="1" min="0">
-                <button class="form__button js-deletePopup">Continue</button>
+                <input class="form__input js-pledgeValue" type="number" step="1" min="1">
+                <button class="form__button js-confirmPledge">Continue</button>
               </div>
             </div>
           </fieldset>
@@ -212,14 +212,16 @@
       </section>
     </div>
 
-    <section class="section section--centred section--short">
-      <h2 class="section__header">Thanks for your support!</h2>
-      <p class="section__paragraph">
-        Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-        an email once our campaign is completed.
-      </p>
-      <button class="section__button">Got it!</button>
-    </section>
+    <div class="popupPledgeConfirm js-popupPledgeConfirm">
+      <section class="section section--centred section--short">
+        <h2 class="section__header">Thanks for your support!</h2>
+        <p class="section__paragraph">
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+          an email once our campaign is completed.
+        </p>
+        <button class="section__button js-cancelPopup">Got it!</button>
+      </section>
+    </div>
   </main>
 
 
