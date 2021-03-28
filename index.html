@@ -72,9 +72,11 @@
         <div class="section__flexElement"><span class="section__boldText">$<span
               class="js-totalPainInAmount">89,914</span></span><br>of
           $100,000 backed</div>
-        <div class="section__flexElement section__flexElement--paddingAndBorder"><span class="section__boldText js-backersAmount">5,007</span><br>total
+        <div class="section__flexElement section__flexElement--paddingAndBorder"><span
+            class="section__boldText js-backersAmount">5,007</span><br>total
           backers</div>
-        <div class="section__flexElement section__flexElement--paddingAndBorder"><span class="section__boldText">56</span><br>days left</div>
+        <div class="section__flexElement section__flexElement--paddingAndBorder"><span
+            class="section__boldText">56</span><br>days left</div>
       </div>
     </section>
 
@@ -102,7 +104,7 @@
         </p>
         <div class="section__flexContainer">
           <div class="section__flexElement"><span class="section__boldText js-bambooStandPieces">20</span> left</div>
-          <button class="section__button section__flexElementButton js-selectRewardButton"> Select Reward</button>
+          <button class="section__button section__flexElement--button js-selectRewardButton"> Select Reward</button>
         </div>
       </div>
 
@@ -117,7 +119,7 @@
         </p>
         <div class="section__flexContainer">
           <div class="section__flexElement"><span class="section__boldText js-blackEditionPieces">10</span> left</div>
-          <button class="section__button section__flexElementButton js-selectRewardButton">Select Reward</button>
+          <button class="section__button section__flexElement--button js-selectRewardButton">Select Reward</button>
         </div>
       </div>
 
@@ -132,7 +134,7 @@
         </p>
         <div class="section__flexContainer">
           <div class="section__flexElement"><span class="section__boldText js-mahoganyEditionPieces">1</span> left</div>
-          <button class="section__button section__flexElementButton js-selectRewardButton">Select Reward</button>
+          <button class="section__button section__flexElement--button js-selectRewardButton">Select Reward</button>
         </div>
       </div>
     </section>
@@ -164,23 +166,25 @@
               you will be signed up to receive product updates via email.
             </p>
             <div class="form__flexContainer js-pledgeValueContainer">
-              <span> Enter your pledge ($)</span>
-              <div>
-                <input class="form__input js-pledgeValue" type="number" step="1" min="1">
-                <button class="form__button js-confirmPledge">Continue</button>
+              <span class="form__flexElement form__span"> Enter your pledge ($)</span>
+              <div class="form__flexElement form__flexContainer">
+                <input class="form__input form__flexElement--input js-pledgeValue" type="number" step="1" min="1">
+                <button class="form__button form__flexElement--button js-confirmPledge">Continue</button>
               </div>
             </div>
           </fieldset>
 
           <fieldset class="form__fieldset js-fieldset">
             <div class="form__flexContainer">
-              <label class="form__label">
+              <label class="form__label form__flexElement">
                 <input class="js-radio" type="radio" name="standType" value="bambooStand" autofocus>
                 <span class="form__boldText">Bamboo Stand</span>
               </label>
-              <div>
-                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">25</span> or more</span>
-                <span class="form__boldText js-bambooStandPieces"> 20</span> left
+              <div class="form__flexElement form__flexContainer">
+                <span class="form__colourText form__flexElement"> Pledge $<span class="js-minimumPledgeValue">25</span>
+                  or more</span>
+                <span class="form__flexElement"><span class="form__boldText form__flexElement js-bambooStandPieces">
+                    20</span> left</span>
               </div>
             </div>
             <p class="form__paragraph">
@@ -193,13 +197,14 @@
 
           <fieldset class="form__fieldset js-fieldset">
             <div class="form__flexContainer">
-              <label class="form__label">
+              <label class="form__label form__flexElement">
                 <input class="js-radio" type="radio" name="standType" value="blackEditionStand">
                 <span class="form__boldText">Black Edition Stand</span>
               </label>
-              <div>
-                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">75</span> or more</span>
-                <span class="form__boldText js-blackEditionPieces">10</span> left
+              <div class="form__flexElement form__flexContainer">
+                <span class="form__colourText form__flexElement"> Pledge $<span class="js-minimumPledgeValue">75</span>
+                  or more</span>
+                <span class="form__flexElement"><span class="form__boldText js-blackEditionPieces">10</span> left</span>
               </div>
             </div>
             <p class="form__paragraph">
@@ -212,11 +217,14 @@
 
           <fieldset class="form__fieldset js-fieldset">
             <div class="form__flexContainer">
-              <label class="form__label"><input class="js-radio" type="radio" name="standType" value="mahoganyStand">
+              <label class="form__label form__flexElement">
+                <input class="js-radio" type="radio" name="standType" value="mahoganyStand">
                 <span class="form__boldText">Mahogany Special Edition</span></label>
-              <div>
-                <span class="form__colourText"> Pledge $<span class="js-minimumPledgeValue">200</span> or more</span>
-                <span class="form__boldText js-mahoganyEditionPieces">1</span> left
+              <div class="form__flexElement form__flexContainer">
+                <span class="form__colourText form__flexElement"> Pledge $<span class="js-minimumPledgeValue">200</span>
+                  or more</span>
+                <span class="form__flexElement"><span class="form__boldText js-mahoganyEditionPieces">1</span>
+                  left</span>
               </div>
             </div>
             <p class="form__paragraph">

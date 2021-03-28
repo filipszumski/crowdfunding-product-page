@@ -105,16 +105,16 @@
                 pledgeElement.classList.add("form__flexContainer--active");
                 fieldsetElements[index].classList.add("form__fieldset--active");
                 pledgeElement.innerHTML = `
-                <span> Enter your pledge ($)</span>
-                <div>
+                <span class="form__flexElement form__span"> Enter your pledge ($)</span>
+                <div class="form__flexElement form__flexContainer">
                     <input
-                        class="form__input js-pledgeValue"
+                        class="form__input form__flexElement--input js-pledgeValue"
                         type="number" 
                         step="1" 
                         min=${minimumPledgeValueElements[index - 1] ? minimumPledgeValueElements[index - 1].innerText : "1"}
                         required
                     >
-                    <button class="form__button js-confirmPledge">Continue</button>
+                    <button class="form__button form__flexElement--button js-confirmPledge">Continue</button>
                 </div>
                 `
             } else {

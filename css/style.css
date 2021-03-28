@@ -45,9 +45,15 @@ body {
     max-width: 800px;
     transform: translate(-50%, -50%) scale(0);
     z-index: 2;
-    max-height: 90vh;
+    max-height: 85vh;
     width: 80%;
     overflow-y: auto;
+}
+
+@media(max-width: 424px) {
+    .popupPledgeForm {
+        width: 90%;
+    }
 }
 
 .popupPledgeConfirm {

@@ -2,12 +2,21 @@
     margin: 0px;
     display: flex;
     list-style-type: none;
-    justify-content: flex-end;
 }
 
 .nav__item {
     text-decoration: none;
     margin-right: 20px;
+}
+
+@media(max-width: 424px) {
+    .nav {
+        flex-wrap: wrap;
+    }
+    .nav__item {
+        text-align: right;
+        flex: 1 0 51%;
+    }
 }
 
 .nav__link {
