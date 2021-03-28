@@ -7,6 +7,7 @@
 }
 
 .section--centred {
+    padding-top: 0px;
     text-align: center;
 }
 
@@ -56,6 +57,7 @@
 }
 
 .section__header--top {
+    margin-top: 21px;
     font-size: 26px;
 }
 
@@ -92,4 +94,25 @@
 .section__bookmarkedButton {
     color: hsl(176, 72%, 28%);
     background-color: hsl(176deg 46% 95%);
+}
+
+.section__checkImg {
+    margin: 30px 0px;
+}
+
+.section__closeButton {
+    background-color: white;
+    border: none;
+}
+
+.section__closeButton:hover {
+    cursor: pointer;
+}
+
+.section__closeImg {
+    background-color: white;
+}
+
+.section__logoImg {
+    margin-top: -28px;
 }
