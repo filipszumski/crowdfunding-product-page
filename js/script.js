@@ -1,21 +1,26 @@
 {
     activeProduct = "";
 
-    const toggleBookmark = (bookmarkButtonElement) => {
-        const bookmarkButtonTextElement = document.querySelector(".js-bookmarkButtonText");
+    const toggleBookmarkSymbol = (bookmarkButtonElement) => {
         const bookmarkImgCircleElement = document.querySelector(".js-bookmarkImgCircle");
-        const bookmarkImgPathElement = document.querySelector(".js-bookmarkImgPath")
+        const bookmarkImgPathElement = document.querySelector(".js-bookmarkImgPath");
 
+        if (!bookmarkButtonElement.classList.contains("section__bookmarkedButton")) {
+            bookmarkButtonElement.classList.add("section__bookmarkedButton");
+            bookmarkImgCircleElement.setAttribute("fill", "hsl(176, 72%, 28%)");
+            bookmarkImgPathElement.setAttribute("fill", "white");
+        } else {
+            bookmarkButtonElement.classList.remove("section__bookmarkedButton");
+            bookmarkImgCircleElement.setAttribute("fill", "hsl(0, 0%, 48%)");
+            bookmarkImgPathElement.setAttribute("fill", "#eee");
+        }
+    }
+
+    const toggleBookmarkText = (bookmarkButtonTextElement) => {
         if (bookmarkButtonTextElement.innerText === "Bookmark") {
             bookmarkButtonTextElement.innerText = "Bookmarked";
-            bookmarkButtonElement.classList.add("section__bookmarkedButton")
-            bookmarkImgCircleElement.setAttribute("fill", "hsl(176, 72%, 28%)")
-            bookmarkImgPathElement.setAttribute("fill", "white")
         } else {
             bookmarkButtonTextElement.innerText = "Bookmark";
-            bookmarkButtonElement.classList.remove("section__bookmarkedButton")
-            bookmarkImgCircleElement.setAttribute("fill", "hsl(0, 0%, 48%)")
-            bookmarkImgPathElement.setAttribute("fill", "#eee")
         }
     };
 
@@ -147,8 +152,15 @@
     };
 
     const bindButtonsEvents = (radioFormElements) => {
+        const bookmarkButtonTextElement = document.querySelector(".js-bookmarkButtonText");
         const bookmarkButtonElement = document.querySelector(".js-bookmarkButton");
-        bookmarkButtonElement.addEventListener("click", () => toggleBookmark(bookmarkButtonElement));
+
+        bookmarkButtonElement.addEventListener("click", () => {
+            toggleBookmarkSymbol(bookmarkButtonElement);
+            if (window.innerWidth >= 768) {
+                toggleBookmarkText(bookmarkButtonTextElement);
+            }
+        });
 
         const overlayContainerElement = document.querySelector(".js-overlayContainer");
         const popupPledgeFormElement = document.querySelector(".js-popupPledgeForm");

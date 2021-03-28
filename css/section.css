@@ -6,6 +6,17 @@
     border-radius: 10px;
 }
 
+.section--product {
+    padding: 30px;
+    margin: 20px 0px;
+}
+
+@media (max-width: 424px) {
+    .section--product {
+        padding: 25px 15px;
+    }
+}
+
 .section--centred {
     padding-top: 0px;
     text-align: center;
@@ -26,14 +37,40 @@
     align-items: center;
 }
 
+@media(max-width: 767px) {
+    .section__flexContainer {
+        flex-wrap: wrap;
+    }
+}
+
 .section__flexElement {
     flex: 1 0 auto;
 }
 
-.section__flexElement1 {
-    flex: 1 0 auto;
+.section__flexElementButton {
+    flex: 0 0 auto;
+}
+
+.section__flexElement--paddingAndBorder {
     padding-left: 35px;
     border-left: 1px solid #ccc;
+}
+
+@media(max-width: 767px) {
+    .section__flexElement {
+        flex: 1 0 51%;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .section__flexElement--paddingAndBorder {
+        text-align: center;
+        border-top: 1px solid #ccc;
+        padding: 15px 0px 15px 0px;
+        border-left: none;
+    }
+    .section__flexElementButton {
+        flex: 1 0 51%;
+    }
 }
 
 .section__boldText {
@@ -44,10 +81,6 @@
 
 .section__colourText {
     color: hsl(176, 50%, 47%);
-}
-
-.section__bookmarkText {
-    margin-left: 10px;
 }
 
 .section__header {
@@ -83,12 +116,25 @@
 
 .section__bookmarkButton {
     border: none;
-    padding: 20px;
     border-radius: 128.02px;
     background-color: #eee;
     color: hsl(0, 0%, 48%);
     align-self: center;
     padding: 0px 20px 0px 0px;
+}
+
+.section__bookmarkText {
+    margin-left: 10px;
+}
+
+@media(max-width: 767px) {
+    .section__bookmarkButton {
+        border-radius: 50%;
+        padding: 0px;
+    }
+    .section__bookmarkText {
+        display: none;
+    }
 }
 
 .section__bookmarkedButton {
