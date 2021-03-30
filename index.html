@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/form.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/nav.css">
@@ -18,13 +17,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <title>Frontend Mentor | Crowdfunding product page</title>
+  <title>Crowdfunding product page</title>
 </head>
 
 <body>
   <div class="overlay js-overlayContainer"></div>
   <header class="header">
-    <span class="header__title">Crowfund</span>
+    <span class="header__title">Crowdfund</span>
     <nav>
       <ul class="nav">
         <li class="nav__item"><a href="" class="nav__link">About</a></li>
@@ -49,8 +48,8 @@
           </g>
         </g>
       </svg>
-      <h2 class="section__header section__header--top">Mastercraft Bamboo Monitor Riser</h2>
-      <p class="section__paragraph">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
+      <h2 class="section__header section__header--main">Mastercraft Bamboo Monitor Riser</h2>
+      <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="section__flexContainer">
         <button class="section__button js-showFormButton"> Back this project</button>
         <button class="section__bookmarkButton js-bookmarkButton">
@@ -72,69 +71,70 @@
         <div class="section__flexElement"><span class="section__boldText">$<span
               class="js-totalPainInAmount">89,914</span></span><br>of
           $100,000 backed</div>
-        <div class="section__flexElement section__flexElement--paddingAndBorder"><span
+        <div class="section__flexElement section__flexElement--border"><span
             class="section__boldText js-backersAmount">5,007</span><br>total
           backers</div>
-        <div class="section__flexElement section__flexElement--paddingAndBorder"><span
+        <div class="section__flexElement section__flexElement--border"><span
             class="section__boldText">56</span><br>days left</div>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section__header">About this project</h2>
-      <p class="section__paragraph">
+      <p>
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
         to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
         your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
       </p>
 
-      <p class="section__paragraph">
+      <p>
         Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
         to allow notepads, pens, and USB sticks to be stored under the stand.
       </p>
 
-      <div class="section section--product js-product">
+      <div class="section__productContainer js-product">
         <div class="section__flexContainer">
           <h2 class="section__header"> Bamboo Stand</h2>
           <span class="section__colourText"> Pledge $25 or more</span>
         </div>
-        <p class="section__paragraph">
+        <p>
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
           you’ll be added to a special Backer member list.
         </p>
         <div class="section__flexContainer">
-          <div class="section__flexElement"><span class="section__boldText js-bambooStandPieces">20</span> left</div>
-          <button class="section__button section__flexElement--button js-selectRewardButton"> Select Reward</button>
+          <span class="section__flexElement"><span class="section__boldText js-bambooStandPieces">20</span> left</span>
+          <button class="section__button section__flexElement js-selectRewardButton"> Select Reward</button>
         </div>
       </div>
 
-      <div class="section section--product js-product">
+      <div class="section__productContainer js-product">
         <div class="section__flexContainer">
           <h2 class="section__header"> Black Edition Stand</h2>
           <span class="section__colourText">Pledge $75 or more</span>
         </div>
-        <p class="section__paragraph">
+        <p>
           You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
           member list. Shipping is included.
         </p>
         <div class="section__flexContainer">
-          <div class="section__flexElement"><span class="section__boldText js-blackEditionPieces">10</span> left</div>
-          <button class="section__button section__flexElement--button js-selectRewardButton">Select Reward</button>
+          <span class="section__flexElement"><span class="section__boldText js-blackEditionPieces">10</span> left</span>
+          <button class="section__button section__flexElement js-selectRewardButton">Select Reward</button>
         </div>
       </div>
 
-      <div class="section section--product js-product">
+      <div class="section__productContainer js-product">
         <div class="section__flexContainer">
           <h2 class="section__header">Mahogany Special Edition</h2>
           <span class="section__colourText"> Pledge $200 or more</span>
         </div>
-        <p class="section__paragraph">
+        <p>
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
           to our Backer member list. Shipping is included.
         </p>
         <div class="section__flexContainer">
-          <div class="section__flexElement"><span class="section__boldText js-mahoganyEditionPieces">1</span> left</div>
-          <button class="section__button section__flexElement--button js-selectRewardButton">Select Reward</button>
+          <span class="section__flexElement"><span class="section__boldText js-mahoganyEditionPieces">1</span>
+            left</span>
+          <button class="section__button section__flexElement js-selectRewardButton">Select Reward</button>
         </div>
       </div>
     </section>
@@ -143,33 +143,32 @@
       <section class="section">
         <div class="section__flexContainer">
           <h2 class="section__header">Back this project</h2>
-          <button class="section__closeButton js-cancelPopupButton"><svg class="section__closeImg" width="15"
-              height="15" xmlns="http://www.w3.org/2000/svg">
+          <button class="section__closeWindowButton js-cancelPopupButton"><svg width="15" height="15"
+              xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
                 fill="#000" fill-rule="evenodd" opacity=".4" />
             </svg>
           </button>
         </div>
-        <p class="section__paragraph">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+        <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
         </p>
 
         <form class="form js-form">
-
           <fieldset class="form__fieldset form__fieldset--active js-fieldset">
             <label class="form__label">
               <input class="js-radio" type="radio" name="standType" value="noStand" checked>
               <span class="form__boldText"> Pledge with no reward</span>
             </label>
-            <p class="form__paragraph">
+            <p>
               Choose to support us without a reward if you simply believe in our project. As a backer,
               you will be signed up to receive product updates via email.
             </p>
-            <div class="form__flexContainer js-pledgeValueContainer">
+            <div class="form__flexContainer form__flexContainer--active js-pledgeValueContainer">
               <span class="form__flexElement form__span"> Enter your pledge ($)</span>
               <div class="form__flexElement form__flexContainer">
-                <input class="form__input form__flexElement--input js-pledgeValue" type="number" step="1" min="1">
-                <button class="form__button form__flexElement--button js-confirmPledge">Continue</button>
+                <input class="form__input form__flexElement js-pledgeValue" type="number" step="1" min="1">
+                <button class="form__button form__flexElement js-confirmPledge">Continue</button>
               </div>
             </div>
           </fieldset>
@@ -187,7 +186,7 @@
                     20</span> left</span>
               </div>
             </div>
-            <p class="form__paragraph">
+            <p>
               You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
               you’ll be added to a special Backer member list.
             </p>
@@ -207,7 +206,7 @@
                 <span class="form__flexElement"><span class="form__boldText js-blackEditionPieces">10</span> left</span>
               </div>
             </div>
-            <p class="form__paragraph">
+            <p>
               You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
               member list. Shipping is included.
             </p>
@@ -227,7 +226,7 @@
                   left</span>
               </div>
             </div>
-            <p class="form__paragraph">
+            <p>
               You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
               to our Backer member list. Shipping is included.
             </p>
@@ -239,7 +238,7 @@
     </div>
 
     <div class="popupPledgeConfirm js-popupPledgeConfirm">
-      <section class="section section--centred section--short">
+      <section class="section section--centred section--width">
         <svg class="section__checkImg" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fill-rule="evenodd">
             <circle fill="#3CB3AB" cx="32" cy="32" r="32" />
@@ -247,7 +246,7 @@
           </g>
         </svg>
         <h2 class="section__header">Thanks for your support!</h2>
-        <p class="section__paragraph">
+        <p>
           Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
           an email once our campaign is completed.
         </p>

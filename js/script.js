@@ -34,7 +34,7 @@
             if (radioElement.value === activeProduct) {
                 radioElement.disabled = true;
                 fieldsetElements[index].classList.add("form__fieldset--disabled");
-                productElements[index - 1].classList.add("section--disabled");
+                productElements[index - 1].classList.add("section__productContainer--disabled");
                 selectRewardButtonElements[index - 1].classList.add("section__button--disabled");
                 selectRewardButtonElements[index - 1].innerText = "Out of stock";
                 selectRewardButtonElements[index - 1].disabled = true;

@@ -6,32 +6,33 @@
     border-radius: 10px;
 }
 
-.section--product {
-    padding: 30px;
-    margin: 20px 0px;
-}
-
-@media (max-width: 424px) {
-    .section--product {
-        padding: 25px 15px;
-    }
-    .section {
-        padding: 25px 20px;
-    }
-}
-
 .section--centred {
     padding-top: 0px;
     text-align: center;
 }
 
-.section--short {
+.section--width {
     max-width: 550px;
-    margin: 0 auto;
 }
 
-.section--disabled {
+.section__productContainer {
+    padding: 30px;
+    margin: 20px 0px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.section__productContainer--disabled {
     opacity: 0.5;
+}
+
+@media (max-width: 424px) {
+    .section {
+        padding: 25px 15px;
+    }
+    .section__productContainer {
+        padding: 25px 15px;
+    }
 }
 
 .section__flexContainer {
@@ -40,38 +41,35 @@
     align-items: center;
 }
 
-@media(max-width: 767px) {
-    .section__flexContainer {
-        flex-wrap: wrap;
-    }
-}
-
 .section__flexElement {
     flex: 1 0 auto;
 }
 
-.section__flexElement--button {
+.section__button.section__flexElement {
     flex: 0 0 auto;
 }
 
-.section__flexElement--paddingAndBorder {
+.section__flexElement--border {
     padding-left: 35px;
     border-left: 1px solid #ccc;
 }
 
 @media(max-width: 767px) {
+    .section__flexContainer {
+        flex-wrap: wrap;
+    }
     .section__flexElement {
         flex: 1 0 51%;
         text-align: center;
         padding-bottom: 15px;
     }
-    .section__flexElement--paddingAndBorder {
+    .section__flexElement--border {
         text-align: center;
         border-top: 1px solid #ccc;
         padding: 15px 0px 15px 0px;
         border-left: none;
     }
-    .section__flexElement--button {
+    .section__button.section__flexElement {
         flex: 1 0 51%;
     }
 }
@@ -92,7 +90,7 @@
     font-size: 18px;
 }
 
-.section__header--top {
+.section__header--main {
     margin-top: 21px;
     font-size: 26px;
 }
@@ -130,6 +128,11 @@
     margin-left: 10px;
 }
 
+.section__bookmarkedButton {
+    color: hsl(176, 72%, 28%);
+    background-color: hsl(176deg 46% 95%);
+}
+
 @media(max-width: 767px) {
     .section__bookmarkButton {
         border-radius: 50%;
@@ -140,28 +143,19 @@
     }
 }
 
-.section__bookmarkedButton {
-    color: hsl(176, 72%, 28%);
-    background-color: hsl(176deg 46% 95%);
-}
-
 .section__checkImg {
     margin: 30px 0px;
 }
 
-.section__closeButton {
+.section__logoImg {
+    margin-top: -28px;
+}
+
+.section__closeWindowButton {
     background-color: white;
     border: none;
 }
 
-.section__closeButton:hover {
+.section__closeWindowButton:hover {
     cursor: pointer;
-}
-
-.section__closeImg {
-    background-color: white;
-}
-
-.section__logoImg {
-    margin-top: -28px;
 }
