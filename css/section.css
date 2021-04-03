@@ -30,6 +30,9 @@
     .section {
         padding: 25px 15px;
     }
+    .section--centred {
+        padding-top: 0px;
+    }
     .section__productContainer {
         padding: 25px 15px;
     }
