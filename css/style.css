@@ -16,10 +16,23 @@ body {
     margin: 0 auto;
     background-color: #eee;
     color: hsl(0, 0%, 48%);
+}
+
+.backgroundImage {
+    z-index: -1;
     background-image: url("../images/image-hero-desktop.jpg");
-    background-size: auto auto;
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    position: absolute;
+}
+
+@media(max-width: 750px) {
+    .backgroundImage {
+        background-image: url("../images/image-hero-mobile.jpg");
+    }
 }
 
 .main {
