@@ -108,7 +108,7 @@
                 <span class="form__flexElement form__span"> Enter your pledge ($)</span>
                 <div class="form__flexElement form__flexContainer">
                     <input
-                        class="form__input form__flexElement--input js-pledgeValue"
+                        class="form__input form__flexElement js-pledgeValue"
                         type="number" 
                         step="1" 
                         min=${minimumPledgeValueElements[index - 1] ? minimumPledgeValueElements[index - 1].innerText : "1"}
@@ -186,6 +186,16 @@
         });
     };
 
+    const toggleNavbar = () => {
+        const hamburgerImgElement = document.querySelector(".js-hamburger");
+        const navElement = document.querySelector(".js-nav");
+
+        hamburgerImgElement.addEventListener("click", () => {
+            console.log("dupa");
+            navElement.classList.toggle("nav--active");
+        })
+    }
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
@@ -202,6 +212,8 @@
     const init = () => {
         const formElement = document.querySelector(".js-form");
         const radioFormElements = document.querySelectorAll(".js-radio");
+
+        toggleNavbar();
 
         formElement.addEventListener("submit", onFormSubmit);
 

@@ -2,7 +2,7 @@
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
-    margin: 30px auto 250px auto ;
+    margin: 30px auto 250px auto;
 }
 
 .header__title {
@@ -10,4 +10,13 @@
     font-size: 18px;
     font-weight: 700;
     margin-left: 20px;
+}
+
+@media(max-width: 425px) {
+    .header {
+        flex-wrap: wrap;
+    }
+    .header__title {
+        flex: 1 0 auto;
+    }
 }
