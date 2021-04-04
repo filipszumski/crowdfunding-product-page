@@ -13,6 +13,7 @@
 
 .section--width {
     max-width: 550px;
+    margin: 0 auto;
 }
 
 .section__productContainer {
