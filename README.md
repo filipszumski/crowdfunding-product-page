@@ -4,7 +4,7 @@ Link: https://filipszumski.github.io/crowdfunding-product-page/
 
 ## Description
 
-This is a crowdfunding product page application, as a customer you are able to buy chosen product, add page to bookmarks, see funding progress
+This is a crowdfunding product page application, as a customer you are able to buy chosen product, add page to bookmarks, see funding progress.
 
 ## Technologies
 
