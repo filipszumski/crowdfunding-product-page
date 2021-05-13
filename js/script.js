@@ -191,7 +191,6 @@
         const navElement = document.querySelector(".js-nav");
 
         hamburgerImgElement.addEventListener("click", () => {
-            console.log("dupa");
             navElement.classList.toggle("nav--active");
         })
     }
