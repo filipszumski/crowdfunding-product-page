@@ -29,8 +29,9 @@ This is a crowdfunding product page application, as a customer you are able to b
 
 ## My other projects
 
-- [Tasks List](https://filipszumski.github.io/tasks-list/)
-- [Currency Converter](https://filipszumski.github.io/currency-converter/)
-- [Tasks List React](https://filipszumski.github.io/tasks-list-react/)
-- [Currency Converter And Data](https://filipszumski.github.io/currency-converter-and-data-react/)
-- [REST Countries API With Theme Switcher](https://filipszumski.github.io/rest-countries-api-with-color-theme-switcher/)
+- [Tasks List](https://github.com/filipszumski/tasks-list)
+- [Currency Converter](https://github.com/filipszumski/currency-converter)
+- [Tasks List React](https://github.com/filipszumski/tasks-list-react)
+- [Currency Converter And Data](https://github.com/filipszumski/currency-converter-and-data-react)
+- [REST Countries API With Theme Switcher](https://github.com/filipszumski/rest-countries-api-with-color-theme-switcher)
+- [Invoice App](https://github.com/filipszumski/invoice-app)
